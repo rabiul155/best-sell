@@ -1,14 +1,21 @@
 // product.route.ts
 import { ProductController } from '../controllers/ProductController';
-import { BaseRouter } from './BaseRouter';
+import ValidateRequest from '../middleware/ValidateRequest';
+import { ProductValidationSchema } from '../validation/ProductValidation';
+import { Router } from 'express';
+export class ProductRouter {
+  static execute() {
+    const router = Router();
+    const controller = new ProductController();
 
-export class ProductRouter extends BaseRouter {
-  private controller = new ProductController();
+    router.get('/', controller.getAllProducts);
 
-  execute() {
-    this.router.get('/', this.controller.getAllProducts);
-    this.router.post('/', this.controller.createProduct);
+    router.post(
+      '/',
+      ValidateRequest.validate(ProductValidationSchema),
+      controller.createProduct,
+    );
 
-    return this.router;
+    return router;
   }
 }

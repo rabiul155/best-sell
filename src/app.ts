@@ -10,7 +10,7 @@ app.use(express.json());
 
 // routes
 
-app.use('/product', new ProductRouter().execute());
+app.use('/product', ProductRouter.execute());
 
 app.get('/', (req: Request, res: Response) => {
   res.send('API is running...');
