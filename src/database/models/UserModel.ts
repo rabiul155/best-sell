@@ -16,6 +16,10 @@ const userSchema = new Schema<UserType>(
       lowercase: true,
       trim: true,
     },
+    password: {
+      type: String,
+      required: true,
+    },
     role: {
       type: String,
       enum: ['buyer', 'seller'],

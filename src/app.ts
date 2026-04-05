@@ -8,6 +8,7 @@ import { WishlistRouter } from './routes/WishlistRouter';
 import { OrderRouter } from './routes/OrderRouter';
 import GlobalErrorHandler from './middleware/GlobalErrorHandler';
 import NotFoundRoute from './middleware/NotFoundRoute';
+import { AuthRouter } from './routes/AuthRoute';
 
 const app: Application = express();
 
@@ -16,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-
+app.use('/auth', AuthRouter.execute());
 app.use('/product', ProductRouter.execute());
 app.use('/users', UserRouter.execute());
 app.use('/feedback', FeedbackRouter.execute());
