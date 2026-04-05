@@ -11,8 +11,8 @@ const wishlistSchema = new Schema<WishlistType>(
       trim: true,
     },
     productId: {
-      type: Types.ObjectId,
-      ref: 'Product',
+      type: String,
+      required: true,
     },
     productName: {
       type: String,

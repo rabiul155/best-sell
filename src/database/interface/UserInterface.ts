@@ -1,5 +1,5 @@
 // user.interface.ts
-export type UserRole = 'admin' | 'user';
+export type UserRole = 'seller' | 'buyer';
 
 export interface UserType {
   name: string;

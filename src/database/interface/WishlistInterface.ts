@@ -1,9 +1,7 @@
 // wishlist.interface.ts
-import { Types } from 'mongoose';
-
 export interface WishlistType {
   userEmail: string;
-  productId?: Types.ObjectId; // recommended
+  productId: string;
   productName: string;
   resalePrice: number;
   picture: string;
